@@ -3,7 +3,11 @@ import App from "../App";
 const SearchBar = () => {
   return (
     <form>
-      <input type="text" placeholder="Search by name..."></input>
+      <input
+        className="search-bar"
+        type="text"
+        placeholder="Search by name..."
+      ></input>
     </form>
   );
 };
