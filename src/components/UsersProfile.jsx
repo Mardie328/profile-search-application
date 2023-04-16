@@ -69,8 +69,8 @@ const UsersProfile = () => {
     },
     {
       id: "60d0fe4f5311236168a10a04",
-      title: "mr. ",
-      firstName: "Konsta ",
+      title: "mr",
+      firstName: "Konsta",
       lastName: "Manninen",
       picture: "https://randomuser.me/api/portraits/med/men/24.jpg",
     },

@@ -43,6 +43,7 @@
   grid-template-columns: repeat(2, 1fr);
   margin-top: 30px;
   grid-gap: 10px;
+  margin-bottom: 50px;
 }
 
 .eachUserContainer {
@@ -66,4 +67,38 @@
   color: #585d64;
   font-size: 0.9rem;
   font-weight: 600;
+}
+
+@media (max-width: 840px) {
+  .userProfileContainer {
+    width: 100%;
+  }
+
+  .components-container {
+    width: 87%;
+  }
+}
+
+@media (max-width: 675px) {
+  .components-container {
+    width: 80%;
+  }
+
+  /* User Profile */
+  .userProfileContainer {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+@media (max-width: 430px) {
+  .components-container {
+    width: 84%;
+  }
+}
+
+@media (max-width: 345px) {
+  .components-container {
+    width: 90%;
+  }
 }
