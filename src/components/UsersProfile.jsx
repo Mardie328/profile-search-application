@@ -1,7 +1,9 @@
 import App from "../App";
+import { useState } from "react";
+import SearchBar from "./SearchBar";
 
 const UsersProfile = () => {
-  const usersProfileArray = [
+  const usersProfileData = [
     {
       id: "60d0fe4f5311236168a109f5",
       title: "ms",
@@ -67,26 +69,48 @@ const UsersProfile = () => {
     },
     {
       id: "60d0fe4f5311236168a10a04",
-      title: "mr",
-      firstName: "Konsta",
+      title: "mr. ",
+      firstName: "Konsta ",
       lastName: "Manninen",
       picture: "https://randomuser.me/api/portraits/med/men/24.jpg",
     },
   ];
 
+  const [searchInput, setSearchInput] = useState("");
+
+  const filteredProfiles = usersProfileData.filter((profile) => {
+    const searchLowercase = searchInput.toLowerCase();
+    const titleMatches = profile.title.toLowerCase().includes(searchLowercase);
+    const firstNameMatches = profile.firstName
+      .toLowerCase()
+      .includes(searchLowercase);
+    const lastNameMatches = profile.lastName
+      .toLowerCase()
+      .includes(searchLowercase);
+
+    return titleMatches || firstNameMatches || lastNameMatches;
+  });
+
   return (
-    <div className="userProfileContainer">
-      {...usersProfileArray.map((userProfile) => {
-        return (
-          <div className="eachUserContainer">
-            <img src={userProfile.picture} />
-            <div className="userDetails">
-              <p className="userId">{userProfile.id} </p>
-              <p className="userName">{userProfile.firstName} </p>
+    <div>
+      <SearchBar searchInput={searchInput} setSearchInput={setSearchInput} />
+      <div className="userProfileContainer">
+        {...filteredProfiles.map((userProfileData, id) => {
+          return (
+            <div className="eachUserContainer" key={id}>
+              <img src={userProfileData.picture} />
+              <div className="userDetails">
+                <p className="userId">{userProfileData.id}</p>
+                <p className="userName">
+                  {userProfileData.title + ". "}
+                  {userProfileData.firstName + " "}
+                  {userProfileData.lastName}
+                </p>
+              </div>
             </div>
-          </div>
-        );
-      })}
+          );
+        })}
+      </div>
     </div>
   );
 };

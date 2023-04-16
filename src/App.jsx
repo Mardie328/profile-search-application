@@ -6,7 +6,6 @@ function App() {
   return (
     <div className="body-container">
       <div className="components-container">
-        <SearchBar />
         <UsersProfile />
       </div>
     </div>
